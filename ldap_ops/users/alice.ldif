@@ -1,0 +1,10 @@
+dn: cn=alice,ou=People,dc=tetrate,dc=io
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+sn: Wonderland
+cn: alice
+uid: alice
+userPassword: UGFzc3dvcmQxCg==
+mail: alice@gmail.com

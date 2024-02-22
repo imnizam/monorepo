@@ -1,0 +1,4 @@
+dn: cn=convai,ou=Groups,dc=tetrate,dc=io
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: cn=convai,ou=People,dc=tetrate,dc=io

@@ -1,0 +1,4 @@
+dn: cn=mb,ou=Groups,dc=tetrate,dc=io
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: cn=mb,ou=People,dc=tetrate,dc=io

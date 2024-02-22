@@ -1,0 +1,4 @@
+dn: cn=convai,ou=Groups,dc=tetrate,dc=io
+changetype: modify
+replace: uniqueMember
+uniqueMember: cn=Zack Butcher,ou=People,dc=tetrate,dc=io
