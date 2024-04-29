@@ -1,4 +1,7 @@
 #!/bin/bash
+# For documentation - Follow blog https://aws.amazon.com/blogs/security/tls-enabled-kubernetes-clusters-with-acm-private-ca-and-amazon-eks-2/
+# and https://github.com/cert-manager/aws-privateca-issuer
+
 
 export PCA_ARN="arn:aws:acm-pca:us-west-2:123456789:certificate-authority/abcdef123"
 export CLUSTER="dev-eks"
