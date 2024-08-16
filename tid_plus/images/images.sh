@@ -23,13 +23,3 @@ docker.io/imnizam/proxyv2:1.21.4-9adece3cec-distroless
 docker.io/imnizam/otelcol:0.105.0
 docker.io/imnizam/tsboperator-server:26e7773a9e6c872cb418a38a209740f2be892456
 docker.io/imnizam/xcp-operator:6a873619d5ddd38c93186fc9099684af5fbdb5c5
-
-##########
-images
-#########
-docker.io/imnizam/xcpd:6a873619d5ddd38c93186fc9099684af5fbdb5c5
-docker.io/imnizam/spm-user:3f876e35d17206ab5e3497c9c6e4639b78cdf08b
-docker.io/imnizam/proxyv2:1.21.4-9adece3cec-distroless
-docker.io/imnizam/otelcol:0.105.0
-docker.io/imnizam/tsboperator-server:26e7773a9e6c872cb418a38a209740f2be892456
-docker.io/imnizam/xcp-operator:6a873619d5ddd38c93186fc9099684af5fbdb5c5
