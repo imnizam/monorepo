@@ -22,7 +22,7 @@ meshConfig:
     - name: tetrate-oap
       zipkin:
         service: oap.tis-plus-system.svc.cluster.local
-        port: 11800
+        port: 9411
     - name: tetrate-oap-als
       envoyHttpAls:
         service: oap.tis-plus-system.svc.cluster.local
