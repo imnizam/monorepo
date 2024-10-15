@@ -21,7 +21,7 @@ meshConfig:
   extensionProviders:
     - name: tetrate-oap
       zipkin:
-        service: oap.tis-plus-system.svc.cluster.local
+        service: zipkin.tis-plus-system.svc.cluster.local
         port: 9411
     - name: tetrate-oap-als
       envoyHttpAls:
