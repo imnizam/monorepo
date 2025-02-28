@@ -1,0 +1,92 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: tsb
+  namespace: elastic
+spec:
+  http:
+    service:
+      spec:
+        type: ClusterIP
+    tls:
+      certificate:  # disable if non tls
+        secretName: elastic-ca # disable if non tls
+      # selfSignedCertificate:
+      #   disabled: false # keep true for non-tls
+  nodeSets:
+  - config:
+      node.data: false
+      node.ingest: false
+      node.master: true
+    count: 1
+    name: master
+    podTemplate:
+      spec:
+        containers:
+        - env:
+          - name: ES_JAVA_OPTS
+            value: -Xmx4g -Xms4g
+          name: elasticsearch
+          resources:
+            limits:
+              memory: 6Gi
+        initContainers:
+        - command:
+          - sh
+          - -c
+          - sysctl -w vm.max_map_count=262144
+          name: set-max-map-count
+          resources: {}
+          securityContext:
+            privileged: true
+  - config:
+      node.data: true
+      node.ingest: true
+      node.master: false
+    count: 3
+    name: data
+    podTemplate:
+      spec:
+        containers:
+        - env:
+          - name: ES_JAVA_OPTS
+            value: -Xmx4g -Xms4g
+          name: elasticsearch
+          resources:
+            limits:
+              memory: 6Gi
+        initContainers:
+        - command:
+          - sh
+          - -c
+          - sysctl -w vm.max_map_count=262144
+          name: set-max-map-count
+          resources: {}
+          securityContext:
+            privileged: true
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+  version: 7.10.0
+---
+# apiVersion: kibana.k8s.elastic.co/v1
+# kind: Kibana
+# metadata:
+#   name: tsb
+#   namespace: elastic
+# spec:
+#   count: 1
+#   elasticsearchRef:
+#     name: tsb
+#   http:
+#     service:
+#       spec:
+#         type: LoadBalancer
+#   version: 7.10.0
